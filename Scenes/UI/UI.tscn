@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://d7elm226jgeh"]
 
+[ext_resource type="Script" uid="uid://cc2xhkvx2tt06" path="res://Scripts/UI/control.gd" id="1_akgwn"]
 [ext_resource type="Texture2D" uid="uid://4fy8npx5n2ki" path="res://Assets/Images/Oraaliliuosohje.png" id="1_de23q"]
-[ext_resource type="Script" uid="uid://ddavlamcsdx1m" path="res://Scripts/Player/instructions.gd" id="2_c7mb3"]
+[ext_resource type="Script" uid="uid://ddavlamcsdx1m" path="res://Scripts/UI/instructions.gd" id="3_b83rk"]
 
 [node name="UI" type="Control" unique_id=569653143]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_akgwn")
 
 [node name="Instructions" type="TextureRect" parent="." unique_id=1632823779]
 layout_mode = 1
@@ -27,7 +29,7 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("1_de23q")
 stretch_mode = 5
-script = ExtResource("2_c7mb3")
+script = ExtResource("3_b83rk")
 
 [node name="Label" type="Label" parent="." unique_id=115056573]
 layout_mode = 0
