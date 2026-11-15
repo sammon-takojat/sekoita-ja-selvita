@@ -5,8 +5,8 @@ var default_pos : Vector2 ## Default position that it resets to when closing
 var default_scale : Vector2 = self.scale ## Default value for scale that it resets to when closing
 const max_scale := Vector2(2, 2) ## Maximum zoom
 const min_scale := Vector2(0.8, 0.8) ## Minimum zoom
-const max_pos := 1000 ## Maximum value for y so that the document always stays on screen
-const min_pos := -700 ## Minimum value for y so that the document always stays on screen
+const max_pos := 800 ## Maximum value for y so that the document always stays on screen
+const min_pos := -800 ## Minimum value for y so that the document always stays on screen
 var zoom := Vector2(0.05, 0.05) ## Zoom sensitivity
 var sens := 0.5 ## Sensitivity for moving document
 
@@ -16,7 +16,7 @@ func _ready() -> void:
 	set_process_input(false)
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	self.visible = false
-	default_pos = self.global_position
+	default_pos = self.position
 
 ## Function that handles inputs
 func _input(event) -> void:
@@ -25,13 +25,15 @@ func _input(event) -> void:
 			if self.scale < max_scale:
 				self.scale += zoom
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			if self.scale > min_scale:
-				self.scale -= zoom
+				if self.scale > min_scale:
+					self.scale -= zoom
 	if event is InputEventMouseMotion:
 		if Input.is_action_pressed("Left_click") or Input.is_action_pressed("Right_click"):
-			var new_y = self.global_position.y + event.relative.y * sens
+			var new_y = self.position.y + event.relative.y * sens
+			print(self.position.y, " ", event.relative.y)
+			print(new_y)
 			if new_y < max_pos and new_y > min_pos:
-				self.global_position.y = new_y
+				self.position.y = new_y
 
 ## Handler runs every frame
 func _process(_delta: float) -> void:
@@ -57,7 +59,7 @@ func show_instructions():
 func hide_instructions():
 	self.visible = false
 	self.scale = default_scale
-	self.global_position = default_pos
+	self.position = default_pos
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	set_process_input(false)
 	get_tree().paused = false

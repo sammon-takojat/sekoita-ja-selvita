@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cdirtdw8j4ap7" path="res://Scenes/Objects/MeasuringCylinder.scn" id="13_bwjtt"]
 [ext_resource type="PackedScene" uid="uid://d0hx8maqo7hrt" path="res://Scenes/Objects/Stand.tscn" id="14_jy0m3"]
 [ext_resource type="PackedScene" uid="uid://caeetgi4b0qh8" path="res://Scenes/Objects/FilterPaper.tscn" id="15_obwj0"]
+[ext_resource type="PackedScene" uid="uid://d7elm226jgeh" path="res://Scenes/UI/UI.tscn" id="17_hgi6u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -37,11 +38,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=26450683]
 environment = SubResource("Environment_5nsto")
-
-[node name="Label" type="Label" parent="." unique_id=555306583]
-offset_right = 43.0
-offset_bottom = 23.0
-text = "Sekoita ja selvitä demo v0.0.1"
 
 [node name="Room" parent="." unique_id=166548899 instance=ExtResource("12_3c8se")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56105113, -0.06857276, -0.13939571)
@@ -101,3 +97,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5843823, 1.0231998, -9.781
 
 [node name="Suppilo" parent="." unique_id=828524975 groups=["hand"] instance=ExtResource("12_bwjft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6988263, 1.0231997, -4.045908)
+
+[node name="UI" parent="." unique_id=569653143 instance=ExtResource("17_hgi6u")]
