@@ -69,7 +69,6 @@ func drop_held_object():
 		held_object.global_position = drop_point
 		held_object.linear_velocity = Vector3.ZERO
 	held_object.collision_layer = (1)
-	held_object.rotation = Vector3.ZERO
 	held_object = null
 
 ## Handler for object functions. Check the state of object holding and

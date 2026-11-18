@@ -7,17 +7,16 @@ uniform float radius = 0.02;
 uniform float fade = 0.01;
 
 
-varying vec3 world_position;
+varying vec3 local_position;
 
 void vertex() {
-	world_position = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+    local_position = VERTEX;
 }
 
 void fragment() {
-	float dist = distance(world_position, hit_position);
+	float dist = distance(local_position, hit_position);
 
 	float strength = 1.0 - smoothstep(radius - fade, radius, dist);
 
-	ALBEDO = base_color.rgb;
-	ALBEDO = mix(ALBEDO, set_color.rgb, strength);
+	ALBEDO = mix(base_color.rgb, set_color.rgb, strength);
 }

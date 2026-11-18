@@ -72,7 +72,10 @@ fill_amount_ml = 200.0
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -3.9715767, 1.0291997, -4.1782722)
 
 [node name="pH-paper" parent="." unique_id=2062769386 instance=ExtResource("2_j0p05")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8257456, 1.0190481, -4.204327)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.8257456, 1.0190481, -4.204327)
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 
 [node name="GlassRod" parent="." unique_id=1332309341 instance=ExtResource("9_7yo87")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.581128, 1.028181, -3.9488103)
