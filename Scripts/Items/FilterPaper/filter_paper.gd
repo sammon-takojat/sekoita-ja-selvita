@@ -12,5 +12,11 @@ func use(object_in_los: Node3D, _collision_point: Vector3) -> void:
 	if object_in_los is not Funnel:
 		return
 	
-	object_in_los.add_child(self)
+	filter.reparent(object_in_los)
+	#filter.set_physics_process(false)
+	filter.collision_mask = 0
+	filter.global_position = object_in_los.global_position + Vector3(0, 0.07, 0) * object_in_los.global_basis.y
+	filter.global_rotation = object_in_los.global_rotation
+	filter.freeze = true
+	
 	drop_object.emit()

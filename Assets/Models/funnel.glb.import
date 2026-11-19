@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://db6oo2lnlfnam"
-path="res://.godot/imported/suppilo.glb-0134adbdc7d56b72faf6255aa5d8e982.scn"
+path="res://.godot/imported/funnel.glb-2e495ebee58602bcfc1cb16f88767a71.scn"
 
 [deps]
 
-source_file="res://Assets/Models/suppilo.glb"
-dest_files=["res://.godot/imported/suppilo.glb-0134adbdc7d56b72faf6255aa5d8e982.scn"]
+source_file="res://Assets/Models/funnel.glb"
+dest_files=["res://.godot/imported/funnel.glb-2e495ebee58602bcfc1cb16f88767a71.scn"]
 
 [params]
 

@@ -44,12 +44,12 @@ shadow_mesh = SubResource("ArrayMesh_ksf1y")
 [sub_resource type="BoxShape3D" id="BoxShape3D_k2oyj"]
 size = Vector3(0.05, 0.1, 0.05)
 
-[node name="Suppilo" type="RigidBody3D" unique_id=828524975 groups=["pickable"]]
+[node name="Funnel" type="RigidBody3D" unique_id=828524975 groups=["pickable"]]
 script = ExtResource("1_5g3su")
 
-[node name="suppilo" type="Node3D" parent="." unique_id=533437447]
+[node name="funnel" type="Node3D" parent="." unique_id=533437447]
 
-[node name="Cube_001" type="MeshInstance3D" parent="suppilo" unique_id=356208742]
+[node name="Cube_001" type="MeshInstance3D" parent="funnel" unique_id=356208742]
 transform = Transform3D(0.040952172, 0, 0, 0, 0.040952172, 0, 0, 0, 0.040952172, 0, 0.040952172, 0)
 mesh = SubResource("ArrayMesh_hlc6e")
 
