@@ -6,7 +6,7 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_oe6p4"]
 points = PackedVector3Array(0.116622224, 0.0013222224, 0.037611112, -0.116622224, -0.002322222, -0.03892222, -0.116622224, 0.0013222224, -0.03892222, 0.116622224, -0.002322222, -0.03892222, -0.116622224, -0.002322222, 0.037611112, -0.116622224, 0.0013222224, 0.037611112, 0.116622224, 0.0013222224, -0.03892222, 0.116622224, -0.002322222, 0.037611112)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jy0m3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jfmd5"]
 render_priority = 0
 shader = ExtResource("2_0x16l")
 shader_parameter/hit_position = Vector3(0, 0, 0)
@@ -16,7 +16,6 @@ shader_parameter/radius = 0.02
 shader_parameter/fade = 0.01
 
 [sub_resource type="BoxMesh" id="BoxMesh_3c8se"]
-material = SubResource("ShaderMaterial_jy0m3")
 size = Vector3(0.25, 0.002, 0.1)
 
 [node name="pH-paper" type="RigidBody3D" unique_id=2062769386 groups=["pickable"]]
@@ -31,4 +30,5 @@ shape = SubResource("ConvexPolygonShape3D_oe6p4")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1533401152]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.075062215, 0, 0.01499559)
+material_overlay = SubResource("ShaderMaterial_jfmd5")
 mesh = SubResource("BoxMesh_3c8se")
