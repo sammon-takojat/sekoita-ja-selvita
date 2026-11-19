@@ -2,12 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://gv1brfosel26" path="res://Assets/Models/Spatula.glb" id="1_3mrcl"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3mrcl"]
-size = Vector3(3.2592707, 44.410004, 4.0644274)
+[sub_resource type="BoxShape3D" id="BoxShape3D_0bca3"]
+size = Vector3(1.0126275, 44.410004, 2.0543392)
 
 [node name="Spatula" unique_id=508627173 groups=["hand", "pickable"] instance=ExtResource("1_3mrcl")]
 continuous_cd = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=117853899]
-transform = Transform3D(0.009104149, 0, 0, 0, 0, -0.009104149, 0, 0.009104149, 0, 0.0005623102, 0.0012118071, -4.5513105e-05)
-shape = SubResource("BoxShape3D_3mrcl")
+[node name="Cylinder" parent="." index="0" unique_id=937179478]
+transform = Transform3D(1.9106855e-17, -4.3711387e-10, -0.01, -0.01, -4.3711387e-10, 0, -4.3711387e-10, 0.01, -4.3711387e-10, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=623259568]
+transform = Transform3D(1.9106855e-17, -4.3711387e-10, -0.01, -0.01, -4.3711387e-10, 0, -4.3711387e-10, 0.01, -4.3711387e-10, -3.4787652e-05, 0.0005404321, -4.9991584e-05)
+shape = SubResource("BoxShape3D_0bca3")
