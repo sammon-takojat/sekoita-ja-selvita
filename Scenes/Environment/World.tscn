@@ -103,3 +103,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6988263, 1.0231997, -4.045
 
 [node name="Spatula" parent="." unique_id=508627173 instance=ExtResource("7_y7y61")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.504376, 1.0252016, -4.146829)
+
+[node name="Beaker4" parent="." unique_id=1108983618 instance=ExtResource("10_kn06e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6469603, 1.1120663, -4.303058)
