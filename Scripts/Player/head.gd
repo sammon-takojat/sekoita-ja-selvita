@@ -105,6 +105,7 @@ func handle_interactions(body):
 	elif body is RigidBody3D && body.is_in_group("pickable"):
 		held_object = body
 		held_object.collision_layer = (1 << 1)
+		held_object.collision_mask = 1
 	elif body.name == "FumeHoodStatic":
 		body.get_parent().get_parent().toggle_window()
 	if held_object and held_object.has_signal("drop_object"):
