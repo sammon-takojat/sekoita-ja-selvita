@@ -103,6 +103,8 @@ func handle_interactions(body):
 	if body is Button3D:
 		body.press()
 	elif body is RigidBody3D && body.is_in_group("pickable"):
+		if body.has_method("reset"):
+			body.reset()
 		held_object = body
 		held_object.collision_layer = (1 << 1)
 		held_object.collision_mask = 1
