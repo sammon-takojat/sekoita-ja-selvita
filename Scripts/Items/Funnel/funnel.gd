@@ -2,6 +2,8 @@ extends RigidBody3D
 class_name Funnel
 ## Script for funnel functions
 
+@export var hold_point : Marker3D
+
 @onready var funnel = $"."
 signal drop_object ## Signal for removing the funnel from the players hand
 
