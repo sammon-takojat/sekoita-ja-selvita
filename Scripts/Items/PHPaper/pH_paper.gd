@@ -24,4 +24,5 @@ func changeColor(pH : float, position: Vector3) -> void:
 		var t := inverse_lerp(10.0, 14.0, pH)
 		shader.set_shader_parameter("set_color", Color.BLUE.lerp(Color.PURPLE, t))
 	shader.set_shader_parameter("hit_position", mesh.to_local(position))
+	shader.set_shader_parameter("start_time", Time.get_ticks_msec() / 1000)
 	
