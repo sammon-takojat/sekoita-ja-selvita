@@ -23,3 +23,7 @@ func use(object_in_los: Node3D, _collision_point: Vector3) -> void:
 			funnel.global_rotation = Vector3(0, 0, 0)
 			return
 		parent_node = parent_node.get_parent()
+
+func get_hold_position():
+	var target_pos = self.global_position
+	return target_pos
