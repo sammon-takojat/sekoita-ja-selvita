@@ -12,7 +12,7 @@ spec:
     - name: staging
       from:
         kind: DockerImage
-        name: dominicnygard/pharm-sim:staging
+        name: sammontakojat/pharm-sim:staging
       importPolicy:
         scheduled: true
       referencePolicy:
@@ -21,7 +21,7 @@ spec:
     - name: release
       from:
         kind: DockerImage
-        name: dominicnygard/pharm-sim:release
+        name: sammontakojat/pharm-sim:release
 
       importPolicy:
         scheduled: true

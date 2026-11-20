@@ -10,7 +10,7 @@ commonLabels:
   environment: staging
 
 images:
-  - name: dominicnygard/pharm-sim
+  - name: sammontakojat/pharm-sim
     newTag: staging
 
 patches:
