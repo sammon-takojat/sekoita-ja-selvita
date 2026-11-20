@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: pharm-sim
-          image: dominicnygard/pharm-sim:staging
+          image: sammontakojat/pharm-sim:staging
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
