@@ -23,6 +23,8 @@ const object_rotation_damping = 100.0
 var rotation_vector = Vector3() ## Rotation vector of the head
 var sens = 0.12 ## Sensitivity of mouse movement
 
+@onready var pickup_ui_text = pickup_ui.get_text()
+
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -130,7 +132,14 @@ func handle_ui():
 	elif raycast.is_colliding():
 		reticle.visible = true
 		if raycast.get_collider().is_in_group("pickable"):
-			pickup_ui.visible = true
+			if "content" in raycast.get_collider():
+				var content = raycast.get_collider().content
+				var new_text = "%s %s" % [pickup_ui_text, content]
+				pickup_ui.set_text(new_text)
+				pickup_ui.visible = true
+			else:
+				pickup_ui.set_text(pickup_ui_text)
+				pickup_ui.visible = true
 		elif raycast.get_collider().name == "FumeHoodStatic":
 			fume_hood_labels.visible = true
 			if raycast.get_collider().get_parent().get_parent().opened == true:
