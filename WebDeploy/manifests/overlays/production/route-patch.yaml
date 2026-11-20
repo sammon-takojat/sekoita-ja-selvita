@@ -9,5 +9,5 @@ metadata:
 spec:
   host: sekoita-ja-selvita.ext.okd-cs-test-0.k8s.cs.helsinki.fi
   to:
-    kind: Production
+    kind: Service
     name: pharm-sim-production
