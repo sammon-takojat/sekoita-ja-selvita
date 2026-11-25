@@ -5,12 +5,10 @@
 [ext_resource type="Script" uid="uid://b6xgd6wi0srv5" path="res://Scripts/Resources/liquid_container.gd" id="2_tde1r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7go6"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-blend_mode = 1
+transparency = 1
+blend_mode = 4
 cull_mode = 2
-albedo_color = Color(0.20875, 0.20875, 0.20875, 0.5019608)
+albedo_color = Color(0.20784314, 0.20784314, 0.20784314, 0.18039216)
 roughness = 0.05
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8owyr"]
@@ -60,7 +58,7 @@ shader_parameter/coeff = Vector2(0, 0)
 shader_parameter/vel = 0.0
 shader_parameter/bounds_center = Vector3(0, 0, 0)
 shader_parameter/bounds_half_extent = Vector3(0, 0, 0)
-shader_parameter/liquid_color = Color(0.4, 0.4, 0.4, 1)
+shader_parameter/liquid_color = Color(1, 1, 1, 1)
 shader_parameter/foam_color = Color(0.9, 0.9, 0.9, 1)
 shader_parameter/foam_line = 0.0
 shader_parameter/fill_amount = 0.0
@@ -95,5 +93,3 @@ surface_material_override/0 = SubResource("ShaderMaterial_gceea")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2" unique_id=81304776]
 transform = Transform3D(0.069, 0, 0, 0, 0.069, 0, 0, 0, 0.069, -0.004692914, 0.0019040508, -0.0007451481)
 shape = SubResource("CylinderShape3D_gceea")
-
-[node name="Node" type="Node" parent="." index="4" unique_id=470951001]

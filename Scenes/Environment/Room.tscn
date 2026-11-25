@@ -62,6 +62,7 @@ size = Vector3(2, 7, 24)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1192984715]
+transform = Transform3D(1, 0, 0, 0, 1.05, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_j464w")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=417062425]
@@ -287,4 +288,6 @@ transform = Transform3D(-2.6226834e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.6226834e-
 transform = Transform3D(-2.6226834e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.6226834e-08, -5.042225, -0.0142707825, -9.5)
 
 [node name="LightmapGI" type="LightmapGI" parent="." unique_id=255711914]
+bounce_indirect_energy = 0.72
+interior = true
 light_data = ExtResource("7_qjn7t")

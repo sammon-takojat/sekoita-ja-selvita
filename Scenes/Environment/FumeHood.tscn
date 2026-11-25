@@ -138,15 +138,14 @@ size = Vector3(0.20996094, 5.9139404, 3.8234863)
 [sub_resource type="BoxShape3D" id="BoxShape3D_yutu1"]
 size = Vector3(1.5249023, 0.18115234, 3.9118652)
 
-[node name="FumeHood" unique_id=2083019472 node_paths=PackedStringArray("animation_player") instance=ExtResource("1_x24cf")]
+[node name="FumeHood" unique_id=2083019472 instance=ExtResource("1_x24cf")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 script = ExtResource("2_wjqph")
-animation_player = NodePath("AnimationPlayer")
 
-[node name="handle" parent="." index="2" unique_id=662729341]
+[node name="handle" parent="." index="2" unique_id=1969278774]
 transform = Transform3D(0.07661248, 7.49145e-10, 0.010597631, 0.010597631, -1.08829985e-08, -0.07661248, 3.188752e-11, 1.8170236, -4.6323714e-10, 0.77156115, 1.8432798, 0.0014626955)
 
-[node name="lowerGlass" parent="." index="3" unique_id=537837976]
+[node name="lowerGlass" parent="." index="3" unique_id=1587474298]
 transform = Transform3D(-4.04685e-08, 0.03565245, 0, -0.92581135, -1.5584181e-09, 0, 0, 0, 1.8033179, 0.40779608, 2.794509, 0.0016668439)
 surface_material_override/0 = SubResource("StandardMaterial3D_pnl04")
 script = SubResource("GDScript_uhuul")
@@ -159,10 +158,10 @@ parent = NodePath("../..")
 transform = Transform3D(1, 0, 0, -2.2737368e-13, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_uhuul")
 
-[node name="table" parent="." index="4" unique_id=1343740782]
+[node name="table" parent="." index="4" unique_id=1808528173]
 surface_material_override/0 = ExtResource("2_uhuul")
 
-[node name="upperGlass" parent="." index="5" unique_id=852738438]
+[node name="upperGlass" parent="." index="5" unique_id=678965710]
 surface_material_override/0 = SubResource("StandardMaterial3D_uajjx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="upperGlass" index="0" unique_id=674893888]
