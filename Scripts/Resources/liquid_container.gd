@@ -46,3 +46,13 @@ func add_reagent(amount_ml: float, molarity: float, is_base: bool):
 func remove_liquid(amount_ml: float) -> Dictionary:
 	calculate_mass(-amount_ml)
 	return reagent.remove_liquid(amount_ml)
+
+func add_powder(incoming: Powder) -> float:
+	var liquid := reagent as Liquid
+	if liquid == null:
+		return 0.0
+	var dissolved := liquid.dissolve_powder(incoming)
+	fill_amount_ml = liquid._fill_amount_ml
+	mass = EMPTY_MASS + (liquid.get_total_mass_g() / 1000.0)
+	emit_signal("mass_changed")
+	return dissolved
