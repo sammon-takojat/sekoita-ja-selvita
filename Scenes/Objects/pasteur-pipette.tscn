@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://b6dub8xby0c5v" path="res://Scripts/Items/PasteurPipette/pasteur_pipette.gd" id="1_sak04"]
 [ext_resource type="Shader" uid="uid://c420kic421m2g" path="res://Shaders/liquid.gdshader" id="3_injpa"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i2cf7"]
+transparency = 4
+albedo_color = Color(1.4954206, 1.4954206, 1.4954206, 0.6313726)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_i2cf7"]
 size = Vector3(0.006, 0.15, 0.006)
 
@@ -36,6 +40,7 @@ mesh = NodePath("MeshInstance3D2")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=719203356]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = ExtResource("1_cvwdy")
+surface_material_override/0 = SubResource("StandardMaterial3D_i2cf7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1429896631]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.3969839e-09, 0.021507919, 0)
