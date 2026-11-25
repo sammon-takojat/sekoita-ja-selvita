@@ -68,5 +68,5 @@ transform = Transform3D(0.055, 0, 0, 0, 0.032, 0, 0, 0, 0.055, 0, -0.005228188, 
 shape = SubResource("ConvexPolygonShape3D_lngrr")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=617510594]
-transform = Transform3D(1.05, 0, 0, 0, 1, 0, 0, 0, 1.05, 0, 0.031117536, 0)
+transform = Transform3D(1.06, 0, 0, 0, 1, 0, 0, 0, 1.06, 0, 0.031117536, 0)
 shape = SubResource("CylinderShape3D_wkjni")
