@@ -1,8 +1,10 @@
 extends RigidBody3D
-class_name Suppilo
+class_name Funnel
 ## Script for funnel functions
 
-@onready var suppilo = $"."
+@export var hold_point : Marker3D
+
+@onready var funnel = $"."
 signal drop_object ## Signal for removing the funnel from the players hand
 
 ## The function looks for get_hold_position method in the target object and
@@ -18,8 +20,8 @@ func use(object_in_los: Node3D, _collision_point: Vector3) -> void:
 		if parent_node.has_method("get_hold_position"):
 			var target_pos = parent_node.get_hold_position()
 			drop_object.emit()
-			suppilo.freeze = true
-			suppilo.global_position = target_pos
-			suppilo.global_rotation = Vector3(0, 0, 0)
+			funnel.freeze = true
+			funnel.global_position = target_pos
+			funnel.global_rotation = Vector3(0, 0, 0)
 			return
 		parent_node = parent_node.get_parent()
