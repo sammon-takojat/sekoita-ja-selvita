@@ -81,7 +81,7 @@ pH = 3.0
 fill_amount_ml = 25.0
 mesh = NodePath("Circle2")
 
-[node name="Circle" parent="." index="0" unique_id=1706655681]
+[node name="Circle" parent="." index="0" unique_id=1249492450]
 surface_material_override/0 = SubResource("StandardMaterial3D_e7go6")
 
 [node name="Circle2" type="MeshInstance3D" parent="." index="1" unique_id=50160122]

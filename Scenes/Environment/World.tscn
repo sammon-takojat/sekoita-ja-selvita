@@ -83,6 +83,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58779764, 1.1050766, -3.97
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9588037, 1.1248763, -4.2324805)
 fill_amount_ml = 100.0
 
+[node name="Node3D" parent="." unique_id=455590915 groups=["hand", "pickable"] instance=ExtResource("12_bwjxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.352067, 1.065882, -4.3713408)
 [node name="Node3D" parent="." unique_id=455590915 instance=ExtResource("12_bwjxt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.352067, 1.0481995, -4.3713408)
 

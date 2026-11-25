@@ -5,6 +5,9 @@ var _max_fill_ml := 0.0
 
 var _pH := 0.0
 var _net_h_moles: float
+var max_solubility_g_per_ml: float = 0.5
+var _dissolved_solute_g: float = 0.0
+var _undissolved_powder: Powder = null
 
 func initialize(initial_ml: float, initial_ph: float, max_fill_ml: float, mesh: MeshInstance3D) -> void:
 	_pH = initial_ph
@@ -130,3 +133,38 @@ func update_pH():
 	
 	_pH = -log(h_concentration) / log(10.0)
 	
+func dissolve_powder(incoming_powder: Powder) -> float:
+	if incoming_powder == null or incoming_powder.get_mass_g() <= 0.0:
+		return 0.0
+		
+	var total_incoming_g = incoming_powder.get_mass_g()
+	var total_incoming_moles = incoming_powder.get_net_h_moles()
+	
+	var max_dissolvable_g = _fill_amount_ml * max_solubility_g_per_ml
+	var remaining_capacity_g = maxf(max_dissolvable_g - _dissolved_solute_g, 0.0)
+	
+	var mass_to_dissolve = minf(total_incoming_g, remaining_capacity_g)
+	
+	if mass_to_dissolve > 0.0:
+		var fraction = mass_to_dissolve / total_incoming_g
+		var moles_to_dissolve = total_incoming_moles * fraction
+		
+		incoming_powder.remove_powder(mass_to_dissolve)
+		
+		_dissolved_solute_g += mass_to_dissolve
+		_net_h_moles += moles_to_dissolve
+		update_pH()
+		
+	if incoming_powder.get_mass_g() > 0.0:
+		if _undissolved_powder == null:
+			_undissolved_powder = Powder.new()
+			_undissolved_powder.initialize(0.0, 1.0, 1.0, false, incoming_powder.get_color(), _max_fill_ml)
+		_undissolved_powder.add_powder(incoming_powder)
+		
+	update_visual()
+	return mass_to_dissolve
+	
+func get_total_contents_mass_g() -> float:
+	var liquid_mass_g = _fill_amount_ml
+	var precipitate_g = _undissolved_powder.get_mass_g() if _undissolved_powder != null else 0.0
+	return liquid_mass_g + _dissolved_solute_g + precipitate_g
