@@ -2,6 +2,7 @@ extends Control
 ## A script for controlling ui elements
 
 @onready var instructions = $Instructions
+@onready var set_content = $SetContent
 
 ## Sets the script to run even when the tree is paused
 func _ready() -> void:
@@ -31,3 +32,7 @@ func hide_instructions() -> void:
 	instructions.reset_view()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_tree().paused = false
+
+func show_set_content():
+	set_content.visible = true
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
