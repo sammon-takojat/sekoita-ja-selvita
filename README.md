@@ -27,12 +27,15 @@ Mallinnukseen käytämme [Blenderiä](https://www.blender.org/)
 
 Kun pelin avaa netissä, selaimen näkymää pitää painaa hiiren vasemmalla napilla, jotta se lukittuu pelin ruutuun. Lukituksen saa pois ESC-napilla.
 
-Hiiri - Kameran liikutus
-WASD - Liikkuminen
-E - Nostaminen/Laskeminen/Interact
-F - Kädessä olevan esineen käyttö
+Hiiri - Kameran liikutus  
+WASD - Liikkuminen  
+E - Nostaminen/Laskeminen/Interact  
+F - Kädessä olevan esineen käyttö  
+O - ohjeet  
 
 Vetokaapin saa auki ja suljettua painamalla E-näppäintä. Kun se on auki sen saa puoliksi kiinni ja takaisin F-nappia painamalla.
 Vaa'an voi taarata osoittamalla isoa sinistä näppäintä ja painamalla E-näppäintä
-Pipetin voi nostaa E-näppäimellä. Siihen saa nestettä osoittamalla astiaa, jossa on vettä ja painamalla F-näppäintä. Samoin pipetillä voi lisätä nestettä astiaan F-näppäimellä.
-pH-arvon näkee kun tökkäsee pH-paperilla dekkaa, jossa on nestettä.
+
+Pipetin voi nostaa E-näppäimellä. Siihen saa otettua nestettä osoittamalla astiaa, jossa on sitä on ja painamalla F-näppäintä. Samoin pipetillä voi lisätä nestettä astiaan tai pH-paperille painamalla F:ää. PH-paperin väri muuttuu sille tiputetun nesteen pH-arvon mukaan. Lusikka toimii kuten pipetti, mutta vain jauheelle.
+
+Suodatinpaperin voi asettaa suppiloon ja suppilon statiiviin F-näppäimellä.
