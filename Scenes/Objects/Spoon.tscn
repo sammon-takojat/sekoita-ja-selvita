@@ -1,16 +1,36 @@
 [gd_scene format=3 uid="uid://c1kmairclhic0"]
 
 [ext_resource type="ArrayMesh" uid="uid://da53cgqjyc175" path="res://Assets/Models/spoon.glb" id="1_djb70"]
+[ext_resource type="Script" uid="uid://bv21p6w4flxig" path="res://Scripts/Items/Spoons/powder_spoon.gd" id="1_dkbpu"]
+[ext_resource type="Shader" uid="uid://8exkeu8fv73r" path="res://Shaders/powder_spoon.gdshader" id="2_d3a7v"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ygefg"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_dkbpu"]
 size = Vector3(0.11100132, 0.008926271, 0.01709413)
 
-[node name="spoon" type="RigidBody3D" unique_id=2005104949 groups=["hand", "pickable"]]
+[sub_resource type="PlaneMesh" id="PlaneMesh_70v8j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y56yh"]
+render_priority = 0
+shader = ExtResource("2_d3a7v")
+shader_parameter/powder_color = Color(0.4, 0.4, 0.4, 1)
+shader_parameter/grain_scale = 5000.0
+shader_parameter/grain_strength = 0.3
+shader_parameter/grain_roughness_var = 0.15
+shader_parameter/radius = Vector2(1, 0.47)
+
+[node name="spoon" type="RigidBody3D" unique_id=2005104949 node_paths=PackedStringArray("mesh") groups=["hand", "pickable"]]
+script = ExtResource("1_dkbpu")
+mesh = NodePath("MeshInstance3D")
 
 [node name="Spoon" type="MeshInstance3D" parent="." unique_id=1062766935]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009442478, 0, 0.0015021861)
+transform = Transform3D(2.645, 0, 0, 0, 2.645, 0, 0, 0, 2.645, 0.009442478, 0, 0.0015021861)
 mesh = ExtResource("1_djb70")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1434018516]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003827054, 0.00095770066, 0.0015021861)
-shape = SubResource("BoxShape3D_ygefg")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=608330997]
+transform = Transform3D(2.645, 0, 0, 0, 2.645, 0, 0, 0, 2.645, -0.005410319, 0.0025331182, 0.0015021861)
+shape = SubResource("BoxShape3D_dkbpu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2011332587]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, -0.10756272, 0.00063971616, 0.0018617436)
+mesh = SubResource("PlaneMesh_70v8j")
+surface_material_override/0 = SubResource("ShaderMaterial_y56yh")

@@ -7,7 +7,7 @@ metadata:
     router: external
 
 spec:
-  host: excaperoom-ohtu-s2026-pharm-sim.ext.okd-cs-test-0.k8s.cs.helsinki.fi
+  host: sekoita-ja-selvita-staging.ext.okd-cs-test-0.k8s.cs.helsinki.fi
   to:
     kind: Service
     name: pharm-sim-staging

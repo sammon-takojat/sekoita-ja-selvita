@@ -5,6 +5,9 @@ extends Resource
 var _mesh: MeshInstance3D
 var _shader_mat: ShaderMaterial
 
+var _bounds_center: Vector3
+var _bounds_half_extent: Vector3
+
 func setup_visual(mesh: MeshInstance3D) -> bool:
 	_mesh = mesh
 
@@ -19,11 +22,11 @@ func setup_visual(mesh: MeshInstance3D) -> bool:
 
 	var aabb = _mesh.get_aabb()
 
-	var center = aabb.position + aabb.size * 0.5
-	var half_extents = aabb.size * 0.5
+	_bounds_center = aabb.position + aabb.size * 0.5
+	_bounds_half_extent = aabb.size * 0.5
 
-	_shader_mat.set_shader_parameter("bounds_center", center)
-	_shader_mat.set_shader_parameter("bounds_half_extent", half_extents)
+	_shader_mat.set_shader_parameter("bounds_center", _bounds_center)
+	_shader_mat.set_shader_parameter("bounds_half_extent", _bounds_half_extent)
 
 	return true
 	

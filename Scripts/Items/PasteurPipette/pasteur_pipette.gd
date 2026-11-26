@@ -7,10 +7,10 @@ class_name Pipette
 var liquid: Liquid
 
 func use(object_in_los, collision_point : Vector3) -> void:
-	if object_in_los and "reagent" in object_in_los and !liquid:
+	if object_in_los and "reagent" in object_in_los and !liquid and object_in_los.is_liquid():
 		liquid = object_in_los.reagent.remove_liquid(capacity_ml)
 		liquid._mesh = mesh
-	elif object_in_los and "reagent" in object_in_los:
+	elif object_in_los and "reagent" in object_in_los and object_in_los.is_liquid():
 		if liquid == null:
 			return
 		
