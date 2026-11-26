@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cg1ynmqcmsfwm" path="res://Scripts/UI/set_content.gd" id="4_b83rk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c1kd"]
-bg_color = Color(0.21176471, 0.21176471, 0.21176471, 1)
+bg_color = Color(0.14509805, 0.14509805, 0.14509805, 0.56078434)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -103,14 +103,25 @@ offset_transform_scale = Vector2(0.805, 0.805)
 theme = SubResource("Theme_lxkuy")
 alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="SetContent/VBoxContainer" unique_id=1319268095]
+[node name="HBoxContainer" type="HBoxContainer" parent="SetContent/VBoxContainer" unique_id=1817657973]
+layout_mode = 2
+alignment = 2
+
+[node name="Close" type="Button" parent="SetContent/VBoxContainer/HBoxContainer" unique_id=1911275438]
+custom_maximum_size = Vector2(20.03, 20)
+layout_mode = 2
+text = "✕"
+
+[node name="CenterContainer" type="CenterContainer" parent="SetContent/VBoxContainer" unique_id=639642465]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="SetContent/VBoxContainer/CenterContainer" unique_id=1761042517]
 custom_minimum_size = Vector2(80, 30)
 custom_maximum_size = Vector2(90, -1)
 layout_mode = 2
-text = "Sisältö:"
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -11.45)
+text = "Syötä sisältö:"
 label_settings = SubResource("LabelSettings_olh5e")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -121,11 +132,11 @@ theme_override_fonts/font = SubResource("SystemFont_akgwn")
 placeholder_text = "Astian sisältö"
 alignment = 1
 
-[node name="CenterContainer2" type="CenterContainer" parent="SetContent/VBoxContainer" unique_id=2037777843]
+[node name="CenterContainer2" type="CenterContainer" parent="SetContent/VBoxContainer" unique_id=1105147783]
 custom_minimum_size = Vector2(0, 32.785)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="SetContent/VBoxContainer/CenterContainer2" unique_id=155800104]
+[node name="Enter" type="Button" parent="SetContent/VBoxContainer/CenterContainer2" unique_id=155800104]
 custom_maximum_size = Vector2(75, 20)
 layout_mode = 2
 offset_transform_scale = Vector2(0.33, 0.84)
