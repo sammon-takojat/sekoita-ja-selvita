@@ -5,6 +5,8 @@ extends RigidBody3D
 @export var molar_mass: float = 40.0
 @export var density_g_per_ml: float = 1.0
 @export var is_base: bool = false
+@export var is_strong: bool = true
+@export var pka: float = 7.0
 @export var powder_color: Color = Color(0.85, 0.85, 0.85, 1.0)
 
 @export var MAX_FILL_ML: float = 250.0
@@ -26,7 +28,9 @@ func _ready() -> void:
 		is_base,
 		powder_color,
 		MAX_FILL_ML,
-		mesh
+		mesh,
+		is_strong,
+		pka
 	)
 	reagent = powder
 	update_mass()

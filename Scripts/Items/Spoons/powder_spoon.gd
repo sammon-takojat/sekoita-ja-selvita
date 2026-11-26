@@ -11,6 +11,7 @@ func use(object_in_los, collision_point: Vector3) -> void:
 	if  inLOS and !powder and !object_in_los.is_liquid():
 		powder = object_in_los.reagent.remove_powder(capacity_ml)
 		powder._mesh = mesh
+		
 	elif inLOS and powder and !object_in_los.is_liquid():
 		var sample = powder.remove_powder(dispense_amount_ml)
 		object_in_los.add_powder(sample)

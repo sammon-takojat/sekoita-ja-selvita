@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://c2becs3fsshs5"]
 
+[ext_resource type="Script" uid="uid://bv21p6w4flxig" path="res://Scripts/Items/Spoons/powder_spoon.gd" id="1_fhsvr"]
 [ext_resource type="Shader" uid="uid://8exkeu8fv73r" path="res://Shaders/powder_spoon.gdshader" id="2_fhsvr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhfv2"]
@@ -57,7 +58,11 @@ shader_parameter/grain_strength = 0.3
 shader_parameter/grain_roughness_var = 0.15
 shader_parameter/radius = Vector2(0.37, 1)
 
-[node name="Microspoon" type="RigidBody3D" unique_id=1062016922 groups=["hand", "pickable"]]
+[node name="Microspoon" type="RigidBody3D" unique_id=1062016922 node_paths=PackedStringArray("mesh") groups=["hand", "pickable"]]
+script = ExtResource("1_fhsvr")
+capacity_ml = 0.02
+dispense_amount_ml = 0.02
+mesh = NodePath("MeshInstance3D")
 
 [node name="Roundcube_001" type="MeshInstance3D" parent="." unique_id=568281893]
 transform = Transform3D(-0.109771974, 0, -9.596566e-09, 0, 0.109771974, 0, 9.596571e-09, 0, -0.10977192, 0, 0, 0)
