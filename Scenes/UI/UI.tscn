@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cc2xhkvx2tt06" path="res://Scripts/UI/control.gd" id="1_akgwn"]
 [ext_resource type="Texture2D" uid="uid://4fy8npx5n2ki" path="res://Assets/Images/Oraaliliuosohje.png" id="1_de23q"]
 [ext_resource type="Script" uid="uid://ddavlamcsdx1m" path="res://Scripts/UI/instructions.gd" id="3_b83rk"]
+[ext_resource type="Script" uid="uid://cg1ynmqcmsfwm" path="res://Scripts/UI/set_content.gd" id="4_b83rk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c1kd"]
 bg_color = Color(0.21176471, 0.21176471, 0.21176471, 1)
@@ -24,6 +25,7 @@ expand_margin_bottom = 10.0
 
 [sub_resource type="SystemFont" id="SystemFont_vwmv4"]
 font_names = PackedStringArray("Ubuntu Sans Mono")
+subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_r2s53"]
 default_font = SubResource("SystemFont_vwmv4")
@@ -33,6 +35,7 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_0c1kd")
 
 [sub_resource type="SystemFont" id="SystemFont_lxkuy"]
 font_names = PackedStringArray("Ubuntu Sans Mono")
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_olh5e"]
 font = SubResource("SystemFont_lxkuy")
@@ -40,6 +43,7 @@ font = SubResource("SystemFont_lxkuy")
 [sub_resource type="SystemFont" id="SystemFont_akgwn"]
 font_names = PackedStringArray("Ubuntu Sans Mono")
 font_italic = true
+subpixel_positioning = 0
 
 [node name="UI" type="Control" unique_id=569653143]
 layout_mode = 3
@@ -83,14 +87,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -135.4325
-offset_top = -50.130005
+offset_top = -53.0
 offset_right = 135.4325
-offset_bottom = 50.130005
+offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.67, 1.67)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme = SubResource("Theme_r2s53")
+script = ExtResource("4_b83rk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SetContent" unique_id=2052661443]
 layout_mode = 2
@@ -113,7 +118,7 @@ vertical_alignment = 1
 [node name="TextField" type="LineEdit" parent="SetContent/VBoxContainer" unique_id=1109699860]
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_akgwn")
-text = "test"
+placeholder_text = "Astian sisältö"
 alignment = 1
 
 [node name="CenterContainer2" type="CenterContainer" parent="SetContent/VBoxContainer" unique_id=2037777843]

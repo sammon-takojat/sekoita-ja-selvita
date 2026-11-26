@@ -15,6 +15,7 @@ var follow_speed = 8.0 ## Speed that the picked up object follows the mouse move
 const object_rotation_damping = 100.0
 
 ## Assign ui elements to variables
+@onready var ui_control := get_node("/root/World/UI")
 @onready var reticle : ColorRect = $"../Reticle"
 @onready var pickup_ui : Label = $"../CenterContainer/PickUpUi"
 @onready var use_ui : Label = $"../CenterContainer/UseUi"
@@ -167,7 +168,9 @@ func handle_use(body):
 		var target = body.get_parent().get_parent()
 		if target.has_method("toggle_use_mode"):
 			target.toggle_use_mode()
-			
+	elif body is LiquidContainer:
+		if held_object == null:
+			ui_control.show_set_content(body)
 ## A helper function that removes the held object from the hand.
 func _on_drop_object():
 	held_object = null
