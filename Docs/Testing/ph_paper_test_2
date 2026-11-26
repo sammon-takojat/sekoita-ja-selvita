@@ -1,0 +1,16 @@
+# pH paper test
+User story: Käyttäjänä voin mitata liuoksen pH:n käyttämällä pipettiä pH-paperiin
+
+Hyväksymiskriteerit: pH-paperi muuttaa väriä sen jälkeen kun pipettillä on laitettu siihen nestettä F-napila
+
+Ominaisuus on testattu manuaalisesti testaamalla käytämällä pipettiä ja painamalla f kun osoittaa ph paperia.
+
+Kun pH on 0 niin pH paperin väri on punainen  
+Kun pH lähestyy 0->4 niin pH paperin väri lähestyy keltaista  
+Kun pH lähestyy 4->7 niin pH paperin väri lähestyy vihreää  
+Kun pH lähestyy 7->10 niin pH paperin väri lähestyy sinistä  
+Kun pH lähestyy 10->14 niin pH paperin väri lähestyy purppuraa
+
+Tippa tulle siihen minne osoitetaan.
+
+Testaaja: Dominic Nygård
