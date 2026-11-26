@@ -56,3 +56,6 @@ func add_powder(incoming: Powder) -> float:
 	mass = EMPTY_MASS + (liquid.get_total_mass_g() / 1000.0)
 	emit_signal("mass_changed")
 	return dissolved
+	
+func is_liquid() -> bool:
+	return true

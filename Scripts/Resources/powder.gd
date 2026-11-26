@@ -306,3 +306,6 @@ func _cleanup_visual() -> void:
 	_top_mesh = null
 	_top_material = null
 	_shader_mat = null
+	
+func is_liquid() -> bool:
+	return true

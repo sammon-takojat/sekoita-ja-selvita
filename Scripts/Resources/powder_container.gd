@@ -80,3 +80,6 @@ func remove_powder(amount_g: float) -> Powder:
 	var sample := powder.remove_powder(amount_g)
 	update_mass()
 	return sample
+	
+func is_liquid() -> bool:
+	return false

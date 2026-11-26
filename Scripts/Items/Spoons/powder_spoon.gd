@@ -6,11 +6,17 @@ class_name PowderSpoon
 @export var mesh: MeshInstance3D
 var powder: Powder
 
-func use(object_in_los) -> void:
-	if object_in_los and "reagent" in object_in_los and !powder:
+func use(object_in_los, collision_point: Vector3) -> void:
+	var inLOS: bool = (object_in_los and "reagent" in object_in_los)
+	if  inLOS and !powder and !object_in_los.is_liquid():
 		powder = object_in_los.reagent.remove_powder(capacity_ml)
 		powder._mesh = mesh
-	elif object_in_los and "reagent" in object_in_los:
+	elif inLOS and powder and !object_in_los.is_liquid():
+		var sample = powder.remove_powder(dispense_amount_ml)
+		object_in_los.add_powder(sample)
+		
+		powder = null
+	elif inLOS and powder and object_in_los.is_liquid():
 		if powder == null:
 			return
 		
