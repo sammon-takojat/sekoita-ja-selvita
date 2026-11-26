@@ -3,6 +3,47 @@
 [ext_resource type="Script" uid="uid://cc2xhkvx2tt06" path="res://Scripts/UI/control.gd" id="1_akgwn"]
 [ext_resource type="Texture2D" uid="uid://4fy8npx5n2ki" path="res://Assets/Images/Oraaliliuosohje.png" id="1_de23q"]
 [ext_resource type="Script" uid="uid://ddavlamcsdx1m" path="res://Scripts/UI/instructions.gd" id="3_b83rk"]
+[ext_resource type="Script" uid="uid://cg1ynmqcmsfwm" path="res://Scripts/UI/set_content.gd" id="4_b83rk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c1kd"]
+bg_color = Color(0.14509805, 0.14509805, 0.14509805, 0.56078434)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 20
+expand_margin_left = 25.0
+expand_margin_top = 10.0
+expand_margin_right = 25.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="SystemFont" id="SystemFont_vwmv4"]
+font_names = PackedStringArray("Ubuntu Sans Mono")
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_r2s53"]
+default_font = SubResource("SystemFont_vwmv4")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_0c1kd")
+
+[sub_resource type="Theme" id="Theme_lxkuy"]
+
+[sub_resource type="SystemFont" id="SystemFont_lxkuy"]
+font_names = PackedStringArray("Ubuntu Sans Mono")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_olh5e"]
+font = SubResource("SystemFont_lxkuy")
+
+[sub_resource type="SystemFont" id="SystemFont_akgwn"]
+font_names = PackedStringArray("Ubuntu Sans Mono")
+font_italic = true
+subpixel_positioning = 0
 
 [node name="UI" type="Control" unique_id=569653143]
 layout_mode = 3
@@ -14,6 +55,7 @@ grow_vertical = 2
 script = ExtResource("1_akgwn")
 
 [node name="Instructions" type="TextureRect" parent="." unique_id=1632823779]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,3 +78,66 @@ layout_mode = 0
 offset_right = 43.0
 offset_bottom = 23.0
 text = "Sekoita ja selvitä demo v0.0.1"
+
+[node name="SetContent" type="PanelContainer" parent="." unique_id=1454780236]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.4325
+offset_top = -53.0
+offset_right = 135.4325
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.67, 1.67)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = SubResource("Theme_r2s53")
+script = ExtResource("4_b83rk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SetContent" unique_id=2052661443]
+layout_mode = 2
+offset_transform_scale = Vector2(0.805, 0.805)
+theme = SubResource("Theme_lxkuy")
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SetContent/VBoxContainer" unique_id=1817657973]
+layout_mode = 2
+alignment = 2
+
+[node name="Close" type="Button" parent="SetContent/VBoxContainer/HBoxContainer" unique_id=1911275438]
+custom_maximum_size = Vector2(20.03, 20)
+layout_mode = 2
+text = "✕"
+
+[node name="CenterContainer" type="CenterContainer" parent="SetContent/VBoxContainer" unique_id=639642465]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SetContent/VBoxContainer/CenterContainer" unique_id=1761042517]
+custom_minimum_size = Vector2(80, 30)
+custom_maximum_size = Vector2(90, -1)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -11.45)
+text = "Syötä sisältö:"
+label_settings = SubResource("LabelSettings_olh5e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextField" type="LineEdit" parent="SetContent/VBoxContainer" unique_id=1109699860]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_akgwn")
+placeholder_text = "Astian sisältö"
+alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="SetContent/VBoxContainer" unique_id=1105147783]
+custom_minimum_size = Vector2(0, 32.785)
+layout_mode = 2
+
+[node name="Enter" type="Button" parent="SetContent/VBoxContainer/CenterContainer2" unique_id=155800104]
+custom_maximum_size = Vector2(75, 20)
+layout_mode = 2
+offset_transform_scale = Vector2(0.33, 0.84)
+text = "Enter"

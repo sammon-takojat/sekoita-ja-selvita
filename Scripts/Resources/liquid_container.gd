@@ -1,6 +1,6 @@
 class_name LiquidContainer extends RigidBody3D
 
-
+@export var content : String
 @export var pH := 7.0
 
 @export var fill_amount_ml : float

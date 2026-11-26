@@ -15,14 +15,15 @@ var follow_speed = 8.0 ## Speed that the picked up object follows the mouse move
 const object_rotation_damping = 100.0
 
 ## Assign ui elements to variables
+@onready var ui_control := get_node("/root/World/UI")
 @onready var reticle : ColorRect = $"../Reticle"
-@onready var pickup_ui : Label = $"../PickUpUi"
-@onready var use_ui : Label = $"../UseUi"
+@onready var pickup_ui : Label = $"../CenterContainer/PickUpUi"
+@onready var use_ui : Label = $"../CenterContainer/UseUi"
+@onready var content_ui : Label = $"../CenterContainer/ContentUi"
 @onready var fume_hood_labels : GridContainer = $"../FumeHoodLabels"
 
 var rotation_vector = Vector3() ## Rotation vector of the head
 var sens = 0.12 ## Sensitivity of mouse movement
-
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -123,6 +124,7 @@ func handle_ui():
 	reticle.visible = false
 	pickup_ui.visible = false
 	fume_hood_labels.visible = false
+	content_ui.visible = false
 	if held_object != null:
 		if raycast.is_colliding():
 			use_ui.visible = true
@@ -131,6 +133,10 @@ func handle_ui():
 		reticle.visible = true
 		if raycast.get_collider().is_in_group("pickable"):
 			pickup_ui.visible = true
+			if "content" in raycast.get_collider():
+				var content = raycast.get_collider().content
+				content_ui.set_text(content)
+				content_ui.visible = true
 		elif raycast.get_collider().name == "FumeHoodStatic":
 			fume_hood_labels.visible = true
 			if raycast.get_collider().get_parent().get_parent().opened == true:
@@ -158,14 +164,17 @@ func handle_inputs():
 
 ## Handler for environment interactions.
 ## If player interacts with fume hood the function calls the appropriate
-## function in fume hoods script.
+## function in fume hoods script. Handles also assigning content for liquid container.
 func handle_use(body):
 	if body.name == "FumeHoodStatic":
 		body.parent.toggle_use_mode()
 		var target = body.get_parent().get_parent()
 		if target.has_method("toggle_use_mode"):
 			target.toggle_use_mode()
-			
+	elif body is LiquidContainer:
+		if held_object == null:
+			ui_control.show_set_content(body)
+
 ## A helper function that removes the held object from the hand.
 func _on_drop_object():
 	held_object = null
