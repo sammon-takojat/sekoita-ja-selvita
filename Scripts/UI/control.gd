@@ -34,13 +34,16 @@ func hide_instructions() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_tree().paused = false
 
+## Shows the set content window, pauses the scene and assigns object in
+## raycast to the variable in set_contents script
 func show_set_content(object_in_los) -> void:
 	set_content.textfield.set_text(object_in_los.content)
 	set_content.visible = true
 	get_tree().paused = true
 	set_content.object_in_los = object_in_los
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
-	
+
+## Hides set content and unpauses the scene
 func hide_set_content() -> void:
 	set_content.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
