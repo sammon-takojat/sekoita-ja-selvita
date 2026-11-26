@@ -1,4 +1,4 @@
-extends Control
+class_name UIControl extends Control
 ## A script for controlling ui elements
 
 @onready var instructions = $Instructions
@@ -18,7 +18,8 @@ func toggle_instructions() -> void:
 	if instructions.visible:
 		hide_instructions()
 	else:
-		show_instructions()
+		if not get_tree().paused:
+			show_instructions()
 
 ## Pauses the scene and displays the instructions
 func show_instructions() -> void:
@@ -33,6 +34,14 @@ func hide_instructions() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_tree().paused = false
 
-func show_set_content():
+func show_set_content(object_in_los) -> void:
+	set_content.textfield.set_text(object_in_los.content)
+	get_tree().paused = true
 	set_content.visible = true
+	set_content.object_in_los = object_in_los
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	
+func hide_set_content() -> void:
+	set_content.visible = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	get_tree().paused = false
