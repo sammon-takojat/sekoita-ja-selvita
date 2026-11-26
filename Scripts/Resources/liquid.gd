@@ -34,6 +34,7 @@ func initialize(initial_ml: float, initial_ph: float, max_fill_ml: float, mesh: 
 	
 	update_visual()
 	
+
 func initialize_from_contents(amount_ml: float, net_h_moles: float, capacity_ml: float) -> void:
 	_fill_amount_ml = amount_ml
 	_net_h_moles = net_h_moles
@@ -41,7 +42,13 @@ func initialize_from_contents(amount_ml: float, net_h_moles: float, capacity_ml:
 	
 	update_pH()
 	update_visual()
-	
+
+func get_fill_amount() -> float:
+	return _fill_amount_ml
+
+func get_max_fill_ml() -> float:
+	return _max_fill_ml
+
 func update_visual() -> void:
 	if _shader_mat == null:
 		return
@@ -71,7 +78,7 @@ func add_reagent(amount_ml: float, molarity: float, is_base: bool):
 	change_fill_amount(amount_ml)
 	
 	update_pH()
-	
+
 func remove_liquid(amount_ml: float) -> Liquid:
 	var removed_amount = min(amount_ml, _fill_amount_ml)
 	
@@ -84,8 +91,6 @@ func remove_liquid(amount_ml: float) -> Liquid:
 	
 	_fill_amount_ml -= removed_amount
 	_net_h_moles -= removed_moles
-	
-	
 	
 	update_pH()
 	update_visual()
