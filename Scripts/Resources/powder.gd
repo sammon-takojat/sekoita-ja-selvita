@@ -24,6 +24,8 @@ var _previous_plane_size := Vector2.ZERO
 
 var _dissolution_rate: float = 0.35
 
+var _weak_species: Array[Dictionary] = []
+
 func initialize(
 	initial_mass_g: float,
 	molar_mass: float,
@@ -31,17 +33,28 @@ func initialize(
 	is_base: bool,
 	color: Color,
 	max_fill_ml: float,
-	mesh: MeshInstance3D = null
+	mesh: MeshInstance3D = null,
+	is_strong: bool = true,
+	pka: float = 7.0
 ) -> void:
 	_max_fill_ml = max_fill_ml
 	_color = color
 	_mesh = mesh
+	
 
 	if _mesh != null:
 		_setup_powder_visual()
 
 	if initial_mass_g > 0.0:
-		add_powder_amount(initial_mass_g, molar_mass, density_g_per_ml, is_base)
+		add_powder_amount(
+			initial_mass_g, 
+			molar_mass, 
+			density_g_per_ml, 
+			is_base,
+			color,
+			is_strong, 
+			pka
+		)
 	else:
 		update_visual()
 
@@ -66,7 +79,9 @@ func add_powder_amount(
 	molar_mass: float,
 	density_g_per_ml: float,
 	is_base: bool,
-	added_color: Color = _color
+	added_color: Color = _color,
+	is_strong: bool = true,
+	pka: float = 7.0
 ) -> float:
 	if mass_g <= 0.0:
 		return 0.0
@@ -87,7 +102,12 @@ func add_powder_amount(
 
 	_mass_g += accepted_mass
 	_bulk_volume_ml += accepted_vol
-	_net_h_moles += -moles if is_base else moles
+	
+	if is_strong:
+		_net_h_moles += -moles if is_base else moles
+	else:
+		_merge_weak_species(moles, pka, is_base)
+		
 
 	update_visual()
 	return accepted_mass
@@ -97,11 +117,25 @@ func remove_powder(amount_g: float) -> Powder:
 	var removed_mass := minf(amount_g, _mass_g)
 	var removed_moles := 0.0
 	var removed_vol := 0.0
+	var removed_weak: Array[Dictionary] = []
 
 	if _mass_g > 0.0:
 		var fraction := removed_mass / _mass_g
 		removed_moles = _net_h_moles * fraction
 		removed_vol = _bulk_volume_ml * fraction
+		
+		for i in range(_weak_species.size() - 1, -1, -1):
+			var sp := _weak_species[i]
+			var take_moles: float = sp.moles * fraction
+			sp.moles -= take_moles
+			if take_moles > 0.0:
+				removed_weak.append({
+					"moles": take_moles,
+					"pka": sp.pka,
+					"is_base": sp.is_base
+				})
+			if sp.moles <= 1e-12:
+				_weak_species.remove_at(i)
 
 	_mass_g -= removed_mass
 	_net_h_moles -= removed_moles
@@ -115,8 +149,9 @@ func remove_powder(amount_g: float) -> Powder:
 		removed_moles,
 		removed_vol,
 		_color,
-		maxf(removed_vol, 1.0)
+		maxf(removed_vol, 1.0),
 	)
+	sample._weak_species = removed_weak
 	return sample
 
 
@@ -144,6 +179,15 @@ func add_powder(other: Powder) -> float:
 	other._mass_g -= transferred_mass
 	other._bulk_volume_ml -= accepted_vol
 	other._net_h_moles -= transferred_moles
+	
+	for i in range(other._weak_species.size() -1, -1, -1):
+		var sp := other._weak_species[i]
+		var moved: float = sp.moles * fraction
+		sp.moles -= moved
+		if moved > 0.0:
+			_merge_weak_species(moved, sp.pka, sp.is_base)
+		if sp.moles <= 1e-12:
+			other._weak_species.remove_at(i)
 
 	update_visual()
 	other.update_visual()
@@ -182,6 +226,18 @@ func set_dissolution_rate(rate: float) -> void:
 	
 func get_dissolution_rate() -> float:
 	return _dissolution_rate
+	
+func get_weak_species() -> Array[Dictionary]:
+	return _weak_species
+	
+func _merge_weak_species(moles: float, pka: float, is_base: bool) -> void:
+	if moles <= 0.0:
+		return
+	for sp in _weak_species:
+		if sp.is_base == is_base and is_equal_approx(sp.pka, pka):
+			sp.moles += moles
+			return
+	_weak_species.append({ "moles": moles, "pka": pka, "is_base": is_base })
 
 func update_visual() -> void:
 	if _shader_mat == null or _top_material == null:
