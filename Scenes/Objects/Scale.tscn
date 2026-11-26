@@ -24,6 +24,7 @@ radius = 0.65625
 [node name="Scale" type="Node3D" unique_id=358667536]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2011070467]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=1103004088]
 script = ExtResource("1_17cfx")
@@ -39,13 +40,13 @@ mesh = ExtResource("2_x3eyo")
 shape = SubResource("ConvexPolygonShape3D_6obsj")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=580652122]
-transform = Transform3D(0.19999999, 0, 0, 0, 0.120534346, 0.1595978, 0, -0.1595978, 0.120534346, -0.05268818, -0.002750352, 0.15425825)
+transform = Transform3D(0.4, 0, 0, 0, 0.24106872, 0.3191957, 0, -0.3191957, 0.24106872, -0.07862398, -0.002750352, 0.3044371)
 text = "0.000
 "
 script = ExtResource("2_n66ht")
 
 [node name="Button" type="StaticBody3D" parent="." unique_id=411366429]
-transform = Transform3D(1, 0, 0, 0, 0.99722517, -0.07444352, 0, 0.07444352, 0.99722517, 0.05613311, 0.041925445, 0.1553807)
+transform = Transform3D(2, 0, 0, 0, 1.9944504, -0.14888707, 0, 0.14888707, 1.9944504, 0.12868689, 0.082776815, 0.30870828)
 script = ExtResource("4_x3eyo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Button" unique_id=1173352695]
