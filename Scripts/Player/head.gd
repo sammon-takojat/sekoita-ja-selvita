@@ -164,7 +164,7 @@ func handle_inputs():
 
 ## Handler for environment interactions.
 ## If player interacts with fume hood the function calls the appropriate
-## function in fume hoods script.
+## function in fume hoods script. Handles also assigning content for liquid container.
 func handle_use(body):
 	if body.name == "FumeHoodStatic":
 		body.parent.toggle_use_mode()
@@ -174,6 +174,7 @@ func handle_use(body):
 	elif body is LiquidContainer:
 		if held_object == null:
 			ui_control.show_set_content(body)
+
 ## A helper function that removes the held object from the hand.
 func _on_drop_object():
 	held_object = null
