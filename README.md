@@ -31,6 +31,7 @@ Hiiri - Kameran liikutus
 WASD - Liikkuminen  
 E - Nostaminen/Laskeminen/Interact  
 F - Kädessä olevan esineen käyttö  
+O - ohjeet  
 
 Vetokaapin saa auki ja suljettua painamalla E-näppäintä. Kun se on auki sen saa puoliksi kiinni ja takaisin F-nappia painamalla.
 Vaa'an voi taarata osoittamalla isoa sinistä näppäintä ja painamalla E-näppäintä
