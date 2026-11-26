@@ -36,8 +36,8 @@ func hide_instructions() -> void:
 
 func show_set_content(object_in_los) -> void:
 	set_content.textfield.set_text(object_in_los.content)
-	get_tree().paused = true
 	set_content.visible = true
+	get_tree().paused = true
 	set_content.object_in_los = object_in_los
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	
