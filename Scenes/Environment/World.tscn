@@ -88,7 +88,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.352067, 1.065882, -4.32699
 
 [node name="MeasuringCylinder" parent="." unique_id=1479036736 instance=ExtResource("13_bwjtt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.650722, 1.0231998, -4.0603285)
-fill_amount_ml = 1000.0
+fill_amount_ml = 500.0
 
 [node name="Stand" parent="." unique_id=2068621740 instance=ExtResource("14_jy0m3")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.5843823, 1.0231998, -9.610417)

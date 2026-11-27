@@ -15,14 +15,14 @@ func initialize(initial_ml: float, initial_ph: float, max_fill_ml: float, mesh: 
 	_pH = initial_ph
 	_max_fill_ml = max_fill_ml
 	_mesh = mesh
-	
+
 	var source_mat = _mesh.get_active_material(0)
 	if not source_mat is ShaderMaterial:
 		push_error("Mesh surface 0 does not use a ShaderMaterial!")
 		return
 		
 	_fill_amount_ml = clampf(initial_ml, 0.0, _max_fill_ml)
-	
+
 	if not setup_visual(mesh):
 		return
 	
@@ -128,7 +128,7 @@ func add_liquid(other: Liquid) -> float:
 	
 	other._fill_amount_ml -= accepted_amount
 	other._net_h_moles -= transferred_moles
-	
+
 	for i in range(other._weak_species.size() - 1, -1, -1):
 		var sp := other._weak_species[i]
 		var moved: float = sp.moles * fraction
@@ -155,15 +155,12 @@ func update_pH():
 	var net_concentration: float = _net_h_moles / volume_l
 	var kw: float = 1.0e-14
 	
-	print("first ph ", _pH)
-	
 	if _weak_species.is_empty():
 		var h_concentration = (
 			net_concentration + sqrt(net_concentration * net_concentration + 4.0 * kw)
 		) / 2.0
 		
 		_pH = -log(h_concentration) / log(10.0)
-		print("strong ph ", _pH)
 		return
 		
 	var low_ph := -1.0
@@ -190,7 +187,6 @@ func update_pH():
 			high_ph = mid_ph
 
 	_pH = (low_ph + high_ph) * 0.5
-	print("weak ph ", _pH)
 	
 func dissolve_powder(incoming: Powder) -> float:
 	if incoming == null or incoming.get_mass_g() <= 0.0:
@@ -203,7 +199,6 @@ func dissolve_powder(incoming: Powder) -> float:
 	
 	if mass_to_dissolve > 0.0:
 		var dissolved_sample: Powder = incoming.remove_powder(mass_to_dissolve)
-		print(dissolved_sample.get_weak_species())
 		_dissolved_solute_g += dissolved_sample.get_mass_g()
 		_net_h_moles += dissolved_sample.get_net_h_moles()
 		
@@ -237,4 +232,3 @@ func _merge_weak_species(moles: float, pka: float, is_base: bool) -> void:
 			sp.moles += moles
 			return
 	_weak_species.append({ "moles": moles, "pka": pka, "is_base": is_base })
-	print(_weak_species)

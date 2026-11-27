@@ -8,4 +8,4 @@ func _ready() -> void:
 
 
 func change_text(new_weight: float):
-	text = "%.4f" % new_weight
+	text = "%.5f" % new_weight

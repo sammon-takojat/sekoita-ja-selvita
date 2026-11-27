@@ -1,7 +1,7 @@
 class_name LiquidContainer extends RigidBody3D
 
 
-@export var pH := 7.0
+@export var pH : float
 
 @export var fill_amount_ml : float
 var net_h_moles: float
@@ -17,7 +17,7 @@ signal mass_changed
 
 func _ready():
 	var fill_percent = fill_amount_ml / MAX_FILL_ML
-	self.mass = lerp(0.0, MAX_FILL_ML/1000, fill_percent) + EMPTY_MASS
+	self.mass = lerp(0.0, MAX_FILL_ML/1000.0, fill_percent) + EMPTY_MASS
 	var liquid := Liquid.new()
 	liquid.initialize(fill_amount_ml, pH, MAX_FILL_ML, mesh)
 	reagent = liquid
@@ -43,8 +43,10 @@ func add_reagent(amount_ml: float, molarity: float, is_base: bool):
 	calculate_mass(amount_ml)
 
 func add_liquid(liquid: Liquid) -> float:
-	calculate_mass(liquid.get_fill_amount())
-	return reagent.add_liquid(liquid)
+	var add_ml = reagent.add_liquid(liquid)
+	if add_ml > 0.0:
+		calculate_mass(add_ml)
+	return add_ml
 	
 func remove_liquid(amount_ml: float) -> Liquid:
 	calculate_mass(-amount_ml)
