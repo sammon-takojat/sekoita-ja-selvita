@@ -25,7 +25,7 @@ func toggle_instructions() -> void:
 func show_instructions() -> void:
 	get_tree().paused = true
 	instructions.visible = true
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 ## Hides the instructions, calls the reset function and unpauses the scene
 func hide_instructions() -> void:
@@ -41,7 +41,7 @@ func show_set_content(object_in_los) -> void:
 	set_content.visible = true
 	get_tree().paused = true
 	set_content.object_in_los = object_in_los
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 ## Hides set content and unpauses the scene
 func hide_set_content() -> void:
