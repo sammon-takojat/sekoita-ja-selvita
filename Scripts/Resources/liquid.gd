@@ -150,15 +150,12 @@ func update_pH():
 	var net_concentration: float = _net_h_moles / volume_l
 	var kw: float = 1.0e-14
 	
-	print("first ph ", _pH)
-	
 	if _weak_species.is_empty():
 		var h_concentration = (
 			net_concentration + sqrt(net_concentration * net_concentration + 4.0 * kw)
 		) / 2.0
 		
 		_pH = -log(h_concentration) / log(10.0)
-		print("strong ph ", _pH)
 		return
 		
 	var low_ph := -1.0
@@ -185,7 +182,6 @@ func update_pH():
 			high_ph = mid_ph
 
 	_pH = (low_ph + high_ph) * 0.5
-	print("weak ph ", _pH)
 	
 func dissolve_powder(incoming: Powder) -> float:
 	if incoming == null or incoming.get_mass_g() <= 0.0:
@@ -232,4 +228,3 @@ func _merge_weak_species(moles: float, pka: float, is_base: bool) -> void:
 			sp.moles += moles
 			return
 	_weak_species.append({ "moles": moles, "pka": pka, "is_base": is_base })
-	print(_weak_species)
