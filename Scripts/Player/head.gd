@@ -35,8 +35,8 @@ func _process(_delta):
 	handle_ui()
 
 func _physics_process(_delta):
-	handle_object_holding()
 	handle_inputs()
+	handle_object_holding()
 
 ## Handles mouse movement and scroll wheel actions. Changes the rotation
 ## vector of the head according to mouse movement. Changes the follow distance
