@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ccojhkcos43g1"]
 
+[ext_resource type="Texture2D" uid="uid://duwwx6i2rxenb" path="res://Assets/Environments/horn-koppe_spring_4k.exr" id="1_0xdd7"]
 [ext_resource type="PackedScene" uid="uid://dodpev3657a8c" path="res://Scenes/Player/Player.tscn" id="1_5cjrv"]
 [ext_resource type="PackedScene" uid="uid://y5m6i88xx7s4" path="res://Scenes/Objects/pH-paper.tscn" id="2_j0p05"]
 [ext_resource type="PackedScene" uid="uid://bns0g1yp8sxjy" path="res://Scenes/Objects/pasteur-pipette.tscn" id="3_5nsto"]
@@ -18,16 +19,15 @@
 [ext_resource type="PackedScene" uid="uid://be0ei6y8u2xrn" path="res://Scenes/Objects/FilterPaper.tscn" id="15_obwj0"]
 [ext_resource type="PackedScene" uid="uid://d7elm226jgeh" path="res://Scenes/UI/UI.tscn" id="17_hgi6u"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bxk4y"]
+panorama = ExtResource("1_0xdd7")
 
-[sub_resource type="Sky" id="Sky_j0p05"]
-sky_material = SubResource("ProceduralSkyMaterial_5cjrv")
+[sub_resource type="Sky" id="Sky_0xsra"]
+sky_material = SubResource("PanoramaSkyMaterial_bxk4y")
 
 [sub_resource type="Environment" id="Environment_5nsto"]
 background_mode = 2
-sky = SubResource("Sky_j0p05")
+sky = SubResource("Sky_0xsra")
 glow_enabled = true
 
 [node name="World" type="Node3D" unique_id=1422076585]
