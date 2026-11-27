@@ -47,9 +47,12 @@ func tare() -> void:
 
 func calculate_weight() -> void:
 	weight = base_weight
+	print("base weight: " + str(base_weight))
+	print("before weight: " + str(weight))
 	for object in objects_on_scale:
 		weight += object.mass
-
+	print("after weight: " + str(weight))
+	
 
 func on_body_weight_changed() -> void:
 	calculate_weight()

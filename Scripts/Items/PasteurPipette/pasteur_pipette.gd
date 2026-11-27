@@ -8,7 +8,7 @@ var liquid: Liquid
 
 func use(object_in_los, collision_point : Vector3) -> void:
 	if object_in_los and "reagent" in object_in_los and !liquid and object_in_los.is_liquid():
-		liquid = object_in_los.reagent.remove_liquid(capacity_ml)
+		liquid = object_in_los.remove_liquid(capacity_ml)
 		liquid._mesh = mesh
 	elif object_in_los and "reagent" in object_in_los and object_in_los.is_liquid():
 		if liquid == null:
@@ -16,7 +16,7 @@ func use(object_in_los, collision_point : Vector3) -> void:
 		
 		var sample = liquid.remove_liquid(dispense_amount_ml)
 
-		object_in_los.reagent.add_liquid(sample)
+		object_in_los.add_liquid(sample)
 		if liquid._fill_amount_ml <= 0.0001:
 			liquid = null
 	elif object_in_los is PH_Paper:
