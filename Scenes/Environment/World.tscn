@@ -101,6 +101,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.504376, 1.0252016, -4.1468
 
 [node name="Beaker4" parent="." unique_id=1108983618 instance=ExtResource("10_kn06e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6469603, 1.1120663, -4.303058)
+content = "Vesi"
 pH = 4.0
 
 [node name="Funnel" parent="." unique_id=828524975 groups=["hand"] instance=ExtResource("12_bwjft")]
