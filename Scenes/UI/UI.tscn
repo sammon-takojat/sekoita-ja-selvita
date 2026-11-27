@@ -33,12 +33,7 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_0c1kd")
 
 [sub_resource type="Theme" id="Theme_lxkuy"]
 
-[sub_resource type="SystemFont" id="SystemFont_lxkuy"]
-font_names = PackedStringArray("Ubuntu Sans Mono")
-subpixel_positioning = 0
-
 [sub_resource type="LabelSettings" id="LabelSettings_olh5e"]
-font = SubResource("SystemFont_lxkuy")
 
 [sub_resource type="SystemFont" id="SystemFont_akgwn"]
 font_names = PackedStringArray("Ubuntu Sans Mono")
@@ -110,7 +105,8 @@ alignment = 2
 [node name="Close" type="Button" parent="SetContent/VBoxContainer/HBoxContainer" unique_id=1911275438]
 custom_maximum_size = Vector2(20.03, 20)
 layout_mode = 2
-text = "✕"
+text = "x"
+icon_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="SetContent/VBoxContainer" unique_id=639642465]
 layout_mode = 2
